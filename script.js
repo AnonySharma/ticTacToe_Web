@@ -2,13 +2,13 @@ var arr;
 const huPlayer='O';
 const aiPlayer='X';
 const winCombos = [	[0,1,2],
-					[3,4,5],
-					[6,7,8],
-					[0,3,6],
-					[1,4,7],
-					[2,5,8],
-					[0,4,8],
-					[2,4,6]]
+			[3,4,5],
+			[6,7,8],
+			[0,3,6],
+			[1,4,7],
+			[2,5,8],
+			[0,4,8],
+			[2,4,6]]
 
 const cells = document.querySelectorAll('.mini');
 StartGame();
@@ -90,7 +90,7 @@ function bestSpot() {
 function checkTie() {
 	if(emptySquares().length==0){
 		for(var i=0;i<cells.length;i++){
-			cells[i].style.backgroundColor="yellow";
+			cells[i].style.backgroundColor="grey";
 			cells[i].removeEventListener('click', turnClick, false);
 		}
 		declareWinner("Game Tie!")
