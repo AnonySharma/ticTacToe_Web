@@ -1,7 +1,7 @@
 var arr;
 var huPlayer = 'O';
 var aiPlayer = 'X';
-var player1='X', player2='X', player1Name="1st Player", player2Name="2nd Player", vs="AI";
+var player1='X', player2='O', player1Name="1st Player", player2Name="2nd Player", vs="AI";
 var tempVar=0, turnPL=0;
 var cells = document.querySelectorAll('.mini');
 const winStates = [
@@ -199,7 +199,7 @@ function restartGame() {
     var r = confirm("Do you want to restart the game?");
     if (r == true) {
     	//location.reload();
-        startGame();
+        StartGame();
     }
 }
 
