@@ -51,53 +51,16 @@ function darkModeSwitcher() {
 	}
 }
 
-/*
-function darkModeSwitcher() {
-    if (document.getElementById("darkBox").checked == true) {
-        document.body.style.backgroundColor = "#222";
-        document.querySelector(".titleText").style.color = "#FFFF32";
-        document.querySelector(".newGameButton").style.backgroundColor = "#FFFF32";
-        document.querySelector(".newGameButton").style.color = "#000";
-        document.querySelector("table").style.color = "#FFFE12";
-
-        /* remove after this for grid glitch */
-        /*
-        var td = document.getElementsByClassName("mini");
-        for (let i = 0; i < td.length; i++) {
-            td[i].style.borderColor = "#AAA111";
-        }
-    }
-    else {
-        document.body.style.backgroundColor = "#FFFF32";
-        document.querySelector(".titleText").style.color = "#111111";
-        document.querySelector(".newGameButton").style.backgroundColor = "#000";
-        document.querySelector(".newGameButton").style.color = "#FFF";
-        document.querySelector("table").style.color = "#000";
-
-        /* remove after this for grid glitch */
-        /*
-        var td = document.getElementsByClassName("mini");
-        for (let i = 0; i < td.length; i++) {
-            td[i].style.borderColor = "#333";
-        }
-    }
-}
-*/
-
 function Xclicked() {
     player1 = 'X';
     document.querySelector(".Xbut").style.backgroundColor = "#830a33";
     document.querySelector(".Obut").style.backgroundColor = "#333332";
-    //document.querySelector(".Obut").classList.remove('XOhover');
-    //document.querySelector(".Obut").disabled = true;
 }
 
 function Oclicked() {
     player1 = 'O';
     document.querySelector(".Obut").style.backgroundColor = "#830a33";
     document.querySelector(".Xbut").style.backgroundColor = "#333332";
-    //document.querySelector(".Xbut").classList.remove('XOhover');
-    //document.querySelector(".Xbut").disabled = true;
 }
 
 function nameStore() {
@@ -138,8 +101,6 @@ function VSaiClicked() {
     	aiPlayer='X';
 	else if(player1=='X')
 		aiPlayer='O';
-    //document.querySelector(".Xbut").classList.remove('XOhover');
-    //document.querySelector(".Xbut").disabled = true;
 }
 
 //------------
@@ -198,9 +159,14 @@ function StartGame() {
 function restartGame() {
     var r = confirm("Do you want to restart the game?");
     if (r == true) {
-    	//location.reload();
         StartGame();
     }
+}
+
+function goToHome(){
+	var r = confirm("Do you want to go to Home Page?");
+    if (r == true)
+    	location.reload();
 }
 
 function afterClick(box) {
