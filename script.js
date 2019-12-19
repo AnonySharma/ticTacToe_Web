@@ -88,7 +88,6 @@ function VSplClicked() {
 }
 
 function VSaiClicked() {
-    //player1='O';
     document.querySelector(".AIbut").style.backgroundColor = "#830a33";
     document.querySelector(".PLbut").style.backgroundColor = "#333332";
     document.querySelector(".symbolVSH1").style.display = "none";
@@ -122,18 +121,9 @@ function basStartKarRhaHoon() {
 	let name2=document.getElementById("p2Name").value;
 
 	if(name1 != "")
-    	var player1Name = name1;
+    	player1Name = name1.substring(0,10);
 	if(name2 != "")
-    	var player2Name = name2;
-
-    //TO REMOVE
-	console.log(player1);
-	console.log(player1Name);
-	if(vs=="PL")
-	{
-		console.log(player2);
-		console.log(player2Name);
-    }
+    	player2Name = name2.substring(0,10);
 
     var v = confirm("Should we start the game?");
     if (v == true) {
@@ -199,7 +189,6 @@ function afterClick(box) {
 }
 
 function turn(boxID, player) {
-	console.log(boxID);
     arr[boxID] = player;
     document.getElementById(boxID).innerText = player;
     let winningPlayer = checkWin(arr, player)
@@ -245,7 +234,6 @@ function gameOver(winningPlayer) {
 	    	declareWinner(String(player1Name + " Wins!"));
 	    else
 	    	declareWinner(String(player2Name + " Wins!"));
-	    //declareWinner(((winningPlayer.player == player1) ? String(player1Name + " Wins!") : String(player2Name + " Wins!")));	
 	}
 }
 
