@@ -105,10 +105,10 @@ tr td:last-child {
 .winner {
   display: none;
   width: 200px;
-  top: 120px;
   background-color: rgba(000,000,000,0.9);
   position: absolute;
-  left: 50%;
+  left: 20.5%;
+  top: 42%;
   margin-left: -100px;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -133,9 +133,9 @@ tr td:last-child {
   cursor: pointer;
 }
 
-.newGameButton:focus, .newGameButton:hover {
+.newGameButton:hover {
   background-color: #000064;
-  text-shadow: 0 0 1px yellow;
+  text-shadow: 0 0 1px #03EFFE;
 }
 
 .chooseXO {
@@ -194,7 +194,7 @@ tr td:last-child {
   text-shadow: 0 0 2px yellow;
 }*/
 
-.XOhover:hover , .XOhover:focus {
+.XOhover:hover {
   background-color: #830a33;
   text-shadow: 0 0 2px yellow;
 }
@@ -245,7 +245,7 @@ tr td:last-child {
   cursor: pointer;
 }
 
-.submit:hover , .submit:focus {
+.submit:hover {
   background-color: #FFFF10;
   text-shadow: 0 0 1px black;
 }
@@ -314,7 +314,7 @@ tr td:last-child {
   text-shadow: 0 0 2px yellow;
 }*/
 
-.VShover:hover , .VShover:focus {
+.VShover:hover {
   background-color: #830a33;
   text-shadow: 0 0 2px yellow;
 }
@@ -372,7 +372,7 @@ tr td:last-child {
   cursor: pointer;
 }
 
-.start:hover , .start:focus {
+.start:hover {
   background-color: #FFFF10;
   text-shadow: 0 0 1px black;
 }
@@ -408,8 +408,25 @@ tr td:last-child {
 	height: 50px;
 }
 
-
 .dark:hover, .dark:focus {
 	height: 51px;
 	transition: 0.5s;
+}
+
+.gotoButton {
+  width: 80px;
+  height: 40px;
+  position: relative;
+  display: none;
+  left: 40%;
+  font-size: 1.2em;
+  font-family: Product Sans;
+  border: none;
+  background-color: #FFFF32;
+  border-radius: 0px;
+  cursor: pointer;
+}
+
+.gotoButton:hover, .replayButton:hover, {
+	text-shadow: 0 0 1px black;
 }
