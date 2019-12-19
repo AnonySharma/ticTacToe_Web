@@ -1,7 +1,7 @@
 var arr;
 var huPlayer = 'O';
 var aiPlayer = 'X';
-var player1, player2, player1Name=" ", player2Name=" ", vs=" ";
+var player1='X', player2='X', player1Name="1st Player", player2Name="2nd Player", vs=" ";
 var tempVar=0, turnPL=0;
 var cells = document.querySelectorAll('.mini');
 const winStates = [
