@@ -1,7 +1,9 @@
 var arr;
-var huPlayer = 'O';
+var dPlayer = 'O';
 var aiPlayer = 'X';
-var player1='X', player2='O', player1Name="1st Player", player2Name="2nd Player", vs="AI";
+var player1='X', player2='O';
+let player1Name="1st Player", player2Name="2nd Player";
+var vs="AI";
 var tempVar=0, turnPL=0;
 var cells = document.querySelectorAll('.mini');
 const winStates = [
@@ -69,6 +71,7 @@ function nameStore() {
 }
 
 //------------
+
 function VSplClicked() {
     if(player1=='O')
     	player2='X';
@@ -82,8 +85,6 @@ function VSplClicked() {
     document.querySelector(".symbolVSH1").style.display = "block";
     document.querySelector(".p2NameText").style.display = "block";
     document.querySelector(".VSContent").style.paddingRight = "0px";
-    //document.querySelector(".Obut").classList.remove('XOhover');
-    //document.querySelector(".Obut").disabled = true;
 }
 
 function VSaiClicked() {
@@ -96,7 +97,7 @@ function VSaiClicked() {
 
     vs="AI";
 
-    huPlayer=player1;
+    dPlayer=player1;
     if(player1=='O')
     	aiPlayer='X';
 	else if(player1=='X')
@@ -111,13 +112,19 @@ function newGame() {
     document.querySelector(".gameBoard").style.display = "none";
     document.querySelector("table").style.display = "none";
     document.querySelector(".replayButton").style.display = "none";
+    document.querySelector(".gotoButton").style.display = "none";
     document.querySelector(".chooseXO").style.display = "block";
     document.getElementById("overlay").style.width = "75%";
 }
 
 function basStartKarRhaHoon() {
-    var player1Name = document.getElementById("p1Name").value;
-    var player2Name = document.getElementById("p2Name").value;
+	let name1=document.getElementById("p1Name").value;
+	let name2=document.getElementById("p2Name").value;
+
+	if(name1 != "")
+    	var player1Name = name1;
+	if(name2 != "")
+    	var player2Name = name2;
 
     //TO REMOVE
 	console.log(player1);
@@ -138,6 +145,7 @@ function basStartKarRhaHoon() {
         document.querySelector("table").style.display = "block";
         document.querySelector(".gameBoard").style.display = "block";
         document.querySelector(".replayButton").style.display = "block";
+        document.querySelector(".gotoButton").style.display = "block";
         document.querySelector(".chooseXO").style.display = "none";
         StartGame();
     } else {
@@ -173,7 +181,7 @@ function afterClick(box) {
     if (typeof arr[box.target.id] == 'number') {
 
         if (vs=="AI") {
-        	turn(box.target.id, huPlayer);
+        	turn(box.target.id, dPlayer);
 
 	        if (!checkTie()) 
 	        	turn(bestSpot(), aiPlayer);
@@ -191,6 +199,7 @@ function afterClick(box) {
 }
 
 function turn(boxID, player) {
+	console.log(boxID);
     arr[boxID] = player;
     document.getElementById(boxID).innerText = player;
     let winningPlayer = checkWin(arr, player)
@@ -217,12 +226,12 @@ function gameOver(winningPlayer) {
 
 	if(vs=="AI") {
 	    for (let index of winStates[winningPlayer.index]) {
-	        document.getElementById(index).style.backgroundColor = ((winningPlayer.player == huPlayer) ? "green" : "red");
+	        document.getElementById(index).style.backgroundColor = ((winningPlayer.player == dPlayer) ? "green" : "red");
 	    }
 	    for (var i = 0; i < cells.length; i++) {
 	        cells[i].removeEventListener("click", afterClick);
 	    }
-	    declareWinner(winningPlayer.player == huPlayer ? "You Win!" : "You Lose.");
+	    declareWinner(winningPlayer.player == dPlayer ? "You Win!" : "You Lose.");
 	}
 	else if(vs=="PL") {
 	    for (let index of winStates[winningPlayer.index]) {
@@ -273,7 +282,7 @@ function checkTie() {
 function minimax(newBoard, player) {
     var spots = emptySpots();
 
-    if (checkWin(newBoard, huPlayer)) {
+    if (checkWin(newBoard, dPlayer)) {
         return {
             score: -10
         };
@@ -294,7 +303,7 @@ function minimax(newBoard, player) {
         newBoard[spots[i]] = player;
 
         if (player == aiPlayer) {
-            var result = minimax(newBoard, huPlayer);
+            var result = minimax(newBoard, dPlayer);
             move.score = result.score;
         } else {
             var result = minimax(newBoard, aiPlayer);
